@@ -115,4 +115,5 @@ window.addEventListener('load', resizeFromInput);
     icon.classList.replace('bi-copy', 'bi-clipboard-check');   // success glyph
     setTimeout(() => icon.classList.replace('bi-clipboard-check', 'bi-copy'), 1200);
   });
+     alert("Copied to clipboard.");
 });
