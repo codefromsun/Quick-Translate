@@ -109,11 +109,11 @@ window.addEventListener('load', resizeFromInput);
   }
 
   document.getElementById('copyOutBtn').addEventListener('click', () => {
+     alert("Copied to clipboard.");
   const ot = document.getElementById('ot');
   navigator.clipboard.writeText(ot.value).then(() => {
     const icon = document.querySelector('#copyOutBtn svg');
     icon.classList.replace('bi-copy', 'bi-clipboard-check');   // success glyph
     setTimeout(() => icon.classList.replace('bi-clipboard-check', 'bi-copy'), 1200);
   });
-     alert("Copied to clipboard.");
 });
