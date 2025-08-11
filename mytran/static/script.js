@@ -108,12 +108,17 @@ window.addEventListener('load', resizeFromInput);
     return cookieValue;
   }
 
-  document.getElementById('copyOutBtn').addEventListener('click', () => {
-     alert("Copied to clipboard.");
+document.getElementById('copyOutBtn').addEventListener('click', () => {
   const ot = document.getElementById('ot');
-  navigator.clipboard.writeText(ot.value).then(() => {
-    const icon = document.querySelector('#copyOutBtn svg');
-    icon.classList.replace('bi-copy', 'bi-clipboard-check');   // success glyph
-    setTimeout(() => icon.classList.replace('bi-clipboard-check', 'bi-copy'), 1200);
-  });
+
+  navigator.clipboard.writeText(ot.value)
+    .then(() => {
+      alert("Copied to clipboard.");
+      const icon = document.querySelector('#copyOutBtn svg');
+      if (icon) {
+        icon.classList.replace('bi-copy', 'bi-clipboard-check'); // success glyph
+        setTimeout(() => icon.classList.replace('bi-clipboard-check', 'bi-copy'), 1200);
+      }
+    })
+    .catch(() => alert("Copy failed."));
 });
